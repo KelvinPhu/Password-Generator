@@ -1,12 +1,11 @@
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class PasswordGenerator {
 	
-	private Scanner sc;
+	private Scanner sc = new Scanner(System.in);
 	
 	PasswordGenerator() {
-        sc = new Scanner(System.in);
-        
         menu();
     }
 	
@@ -32,12 +31,17 @@ public class PasswordGenerator {
 	}
 
 	private void encryptPassword() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	private void generatePassword() {
-		// TODO Auto-generated method stub
-		
+		int passwordLength = 50;
+		SecureRandom random = new SecureRandom();
+		StringBuilder password = new StringBuilder();
+		for(int i=0; i<passwordLength; i++) {
+			char randomChar = (char) (random.nextInt(95) + 32);
+			password.append(randomChar);
+		}
+		System.out.println("Your password is: " + password.toString());
 	}
 }
