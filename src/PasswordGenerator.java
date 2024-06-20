@@ -62,8 +62,38 @@ public class PasswordGenerator {
 	}
 
 	private void checkPasswordStrengh() {
-		// TODO Auto-generated method stub
+		System.out.println("Enter Your password: ");
+		String password = sc.nextLine();
 		
+		boolean hasUpperCase = false;
+		boolean hasLowerCase = false;
+		boolean hasNumber = false;
+		boolean hasSymbol = false;
+		
+		for(char c : password.toCharArray()) {
+			if(Character.isUpperCase(c)) {
+				hasUpperCase = true;
+			}else if(Character.isLowerCase(c)) {
+				hasLowerCase = true;
+			}else if(Character.isDigit(c)) {
+				hasNumber = true;
+			}else{
+				hasSymbol = true;
+			}
+		}
+		
+		if(password.length() < 8) {
+			System.out.println("Uour password is too short. It should be at lease 8 characters.");
+		}else if(password.length() < 16) {
+			System.out.println("your password is decent, for strong password, consider using at lease 16 characters.");
+		}else {
+			System.out.println("Your password is good");
+		}
+		
+		System.out.println("Does your password contain an uppercase letter ? " + (hasUpperCase ? "yes" : "no"));
+		System.out.println("Does your password contain a lowercase letter ? " + (hasLowerCase ? "yes": "no"));
+		System.out.println("Does your password contain a number ? " + (hasNumber ? "yes": "no"));
+		System.out.println("Does your password contain a symbol ? " + (hasSymbol ? "yes" : "no"));
 	}
 
 	// encrypt using hashing algorithm
