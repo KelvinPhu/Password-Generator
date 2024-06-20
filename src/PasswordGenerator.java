@@ -16,16 +16,32 @@ public class PasswordGenerator {
 	void menu() {
 		while (true) {
 			System.out.println("--------------------------------");
-			System.out.println("1. Generate a strong password\n2. Convert your password to encrypted password");
+			System.out.println("1. Create new password\n"
+							 + "2. Encrypt your password\n"
+							 + "3. Check your password Strength\n"
+							 + "4. Display Useful Password Tips\n"
+							 + "5. Exit\n");
 			char option = Character.toUpperCase(sc.nextLine().charAt(0));
 			
 			switch (option) {
-			case 'G':
+			case '1':
 				generatePassword();
 				break;
 				
-			case 'C':
+			case '2':
 				encryptPassword();
+				break;
+			
+			case '3':
+				checkPasswordStrengh();
+				break;
+			
+			case '4':
+				displayPasswordTips();
+				break;
+				
+			case '5':
+				exit();
 				break;
 
 			default:
@@ -33,6 +49,21 @@ public class PasswordGenerator {
 				break;
 			}
 		}
+	}
+
+	private void exit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void displayPasswordTips() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void checkPasswordStrengh() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// encrypt using hashing algorithm
@@ -57,11 +88,42 @@ public class PasswordGenerator {
 	private void generatePassword() {
 		StringBuilder password = new StringBuilder();
 		SecureRandom random = new SecureRandom();
-		int passwordLength = 30;
+		
+		System.out.println("Do you want uppercase letters in your password? (Y/N): ");
+		boolean useUpperCase = sc.nextLine().equalsIgnoreCase("yes");
+		System.out.println("Do you want lowerCase letters in your password? (Y/N): ");
+		boolean useLowerCase = sc.nextLine().equalsIgnoreCase("yes");
+		System.out.println("Do you want symbols in your password? (Y/N): ");
+		boolean useSymbols = sc.nextLine().equalsIgnoreCase("Yes");
+		System.out.println("Do you want numbers to your password? (Y/N): ");
+		boolean useNumbers = sc.nextLine().equalsIgnoreCase("yes");
+		
+		System.out.println("Enter the length of password: ");
+		int passwordLength = Integer.parseInt(sc.nextLine());
+		
+		String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String LowerCase = "abcdefghijklmnopqrstuvwxyz";
+		String Symbols = "!@#$%^&*()_+{}|:<>?~";
+		String Numbers = "1234567890";
+		
+		String character = "";
+		if(useUpperCase) {
+			character += upperCase;
+		}
+		if(useLowerCase) {
+			character += LowerCase;
+		}
+		if(useSymbols) {
+			character += Symbols;
+		}
+		if(useNumbers) {
+			character += Numbers;
+		}
+		
 		for(int i=0; i<passwordLength; i++) {
-			char randomChar = (char) (random.nextInt(95) + 32);
+			char randomChar = character.charAt(random.nextInt(character.length()));
 			password.append(randomChar);
 		}
-		System.out.println("Your password is:" +password.toString());
+		System.out.println("Your password is: " +password.toString());
 	}
 }
