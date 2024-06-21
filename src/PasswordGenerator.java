@@ -52,13 +52,19 @@ public class PasswordGenerator {
 	}
 
 	private void exit() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Exiting the program. Thank you for your using the password generator.");
+		System.exit(0);
 	}
 
 	private void displayPasswordTips() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Here are some tips for creating a strong password:"
+				+ "\n1. Use a mix of upperCase and lowerCase letters."
+				+ "\n2. Include Numbers & symbols."
+				+ "\n3. Make your password at least 8 characters long."
+				+ "\n4. Avoid using common words or phrases. Instead using a phrase that is meaningful to you but hard for others to guess."
+				+ "\n5. Don't use personal information such as your name, birdthday or passport number."
+				+ "\n6. Don't use the same password for multiple accounts."
+				+ "\n7. Regularly update your password.");
 	}
 
 	private void checkPasswordStrengh() {
