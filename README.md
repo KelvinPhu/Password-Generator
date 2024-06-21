@@ -1,1 +1,1 @@
-# PAssword Generation program (funny program)
+# Password Generation program (funny program)
