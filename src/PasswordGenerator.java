@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
+
 public class PasswordGenerator {
 	
 	private Scanner sc = new Scanner(System.in);
